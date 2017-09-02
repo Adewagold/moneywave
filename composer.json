@@ -1,0 +1,13 @@
+{
+    "name": "adewagold/moneywave",
+    "description": "A PHP library to consume moneywave api services",
+    "type": "library",
+    "license": "MIT licence",
+    "authors": [
+        {
+            "name": "Adewale Adeleye",
+            "email": "Adewagold@yahoo.com"
+        }
+    ],
+    "require": {}
+}
