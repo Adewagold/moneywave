@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
+
 namespace Adewagold\Moneywave;
 use GuzzleHttp\Client;
 
@@ -60,7 +60,6 @@ public static $jsonHeader = array(
        $request = $this->client->request("POST", $url, $options);
        // $request->
        $response = json_decode($request->getBody()->getContents(), true);
-        dd($response);
        if ($response["status"] == "success") {
            return $response["token"];
        }
@@ -68,4 +67,11 @@ public static $jsonHeader = array(
        return false;
     }
 
+
+    public function initRequest() {
+        // $body = ["apiKey" => $this->apiKey, "secret" => $this->apiSecret];
+        $headers = ['content-type' => 'application/json', "Authorization" => $this->getAuthorizetoken(), "exceptions" => FALSE, "Cache-Control"=> "no-cache"];
+        $options = ["headers" => $headers];
+        return $options;
+} 
 }

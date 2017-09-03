@@ -1,9 +1,10 @@
 <?php
-use Adewagold\Moneywave\MoneywaveConfig;
+use Adewagold\Moneywave\MoneywaveBanks;
 
 
 Route::get('/moneywave', function(){
-    $moneywave = new MoneywaveConfig;
-    $moneywave->getAuthorizetoken();
+    $moneywave = new MoneywaveBanks;
+    $moneywave->getBanks();
+
 	echo 'Hello from the moneywave package!';
 });
