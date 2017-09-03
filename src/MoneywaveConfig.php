@@ -68,10 +68,5 @@ public static $jsonHeader = array(
     }
 
 
-    public function initRequest() {
-        // $body = ["apiKey" => $this->apiKey, "secret" => $this->apiSecret];
-        $headers = ['content-type' => 'application/json', "Authorization" => $this->getAuthorizetoken(), "exceptions" => FALSE, "Cache-Control"=> "no-cache"];
-        $options = ["headers" => $headers];
-        return $options;
-} 
+
 }
