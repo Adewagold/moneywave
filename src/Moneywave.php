@@ -1,5 +1,13 @@
 <?php 
-
+/*
+ * This file is part of the Laravel Moneywave package.
+ *
+ * (c) Adewale Adeleye <adewagold@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+ 
 namespace Adewagold\Moneywave;
 
 use Adewagold\Moneywave\MoneywaveConfig;
@@ -16,25 +24,9 @@ class Moneywave extends MoneywaveConfig
 
     public function getRequest()
     {
-        
+
     }
 
-    public function getAuthorizetoken()
-    {
-      // $client =  new Client;
-       $data = json_encode(['apiKey'=>$this->key,'secret'=>$this->secret]);      
-       $url = $this->baseurl . "v1/merchant/verify";
-       $body = ["apiKey" => $this->key, "secret" => $this->secret];
-       $options = ["headers" => self::$jsonHeader, "body" => $data];
-       $request = $this->client->request("POST", $url, $options);
-       // $request->
-       $response = json_decode($request->getBody()->getContents(), true);
-
-       if ($response["status"] == "success") {
-           return $response["token"];
-       }
-
-       return false;
-    }
+    
 
 }
