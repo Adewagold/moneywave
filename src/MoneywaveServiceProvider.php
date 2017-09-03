@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace adewagold\moneywave;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +23,7 @@ class MoneywaveServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        include __DIR__.'/routes.php';
+        $this->app->make('Adewagold\Moneywave\Moneywave');
     }
 }
