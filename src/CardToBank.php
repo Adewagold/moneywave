@@ -38,7 +38,7 @@ class CardToBank extends Moneywave
         $this->email = request()->email;
         $this->phoneno = request()->phoneno;
         $this->recipientbank = request()->recipientbank;
-        $this->recipientaccount='3040981690';
+        $this->recipientaccount=request()->recipeintaccount;
         $this->amount = intval(request()->amount);
         $this->redirecturl = request()->redirecturl;
     }
@@ -62,7 +62,7 @@ class CardToBank extends Moneywave
             "recipient_account_number"=>$this->recipientaccount,
             "card_no"=>$this->cardnumber,
             "cvv"=>$this->cvv,
-            "pin"=>$this->pin, //optional required when using VERVE card
+            "pin"=>$this->pin?:null, //optional required when using VERVE card
             "expiry_year"=>$this->expiryyear,
             "expiry_month"=>$this->expirymonth,
             //"charge_auth"=>"PIN", //optional required where card is a local Mastercard
