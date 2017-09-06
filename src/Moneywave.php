@@ -29,6 +29,11 @@ class Moneywave extends MoneywaveConfig
         
     }
 
+    public function getApiKey()
+    {
+        return $this->config->apikey;
+    }
+
     public function initRequest() {
         // $body = ["apiKey" => $this->apiKey, "secret" => $this->apiSecret];
         $headers = ['content-type' => 'application/json', "Authorization" => $this->config->getAuthorizetoken(), "exceptions" => FALSE, "Cache-Control"=> "no-cache"];

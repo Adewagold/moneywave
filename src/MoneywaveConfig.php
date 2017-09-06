@@ -29,8 +29,9 @@ public static $jsonHeader = array(
         $baseurl='';
 
         $this->client = new Client();
-        $this->apikey = $apikey ? : getenv('MONEYWAVE_APIKEY');  
-        $this->apisecret = $apisecret ? : getenv('MONEYWAVE_SECRET');
+        $this->apikey = env('MONEYWAVE_APIKEY') ?: $apikey ;  
+        $this->apisecret = env('MONEYWAVE_SECRET')?:$apisecret;
+        
         $env = $this->setEnvironment($this->environment);
 
         if ($env =='production')
@@ -53,7 +54,8 @@ public static $jsonHeader = array(
     public function getAuthorizetoken()
     {
       // $client =  new Client;
-       $data = json_encode(['apiKey'=>$this->apikey,'secret'=>$this->apisecret]);      
+      $config = new MoneywaveConfig;
+       $data = json_encode(['apiKey'=>$config->apikey,'secret'=>$config->apisecret]);      
        $url = $this->baseurl . "v1/merchant/verify";
       // $body = ["apiKey" => $this->apikey, "secret" => $this->apisecret];
        $options = ["headers" => self::$jsonHeader, "body" => $data];
@@ -70,3 +72,9 @@ public static $jsonHeader = array(
 
 
 }
+
+/*
+ $this->client =  new Client();
+        $this->baseurl = 'https://live.moneywaveapi.co/'; //'https://moneywave.herokuapp.com/';
+        $this->key ='lv_MR5THKS4ZAW2G1ENK8D2';//'ts_OKDKSBUMD4ZCRT5YU8NR';
+        $this->secret = 'lv_VZ5I8J4BKM8W33GBDZ630TV6L0KVYN';//'ts_2EANBLDL72ZLC2WV4G78AWASF5G04U';

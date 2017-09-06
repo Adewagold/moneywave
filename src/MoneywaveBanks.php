@@ -20,21 +20,8 @@
         $url  = $this->baseurl . "banks/";
         $request = $this->client->request('POST',$url,$initreq);
         $response = json_decode($request->getBody()->getContents(), true);
-        dd($response);
         return $response;
        
-    //     catch (\GuzzleHttp\Exception\RequestException $e) {
-            
-    //     if ($e->hasResponse()) {
-    //         return json_decode($e->getResponse()->getBody()->getContents(), true);
-    //     }
-
-    //     $error = ["status" => "error",
-    //         "message" => "Cannot check bank at this time, please try again",
-    //         "code" => "INVALID_RESPONSE"];
-
-    //     return $error;
-
-    // }
+   
     }
  }

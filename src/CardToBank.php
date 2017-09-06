@@ -9,6 +9,7 @@
  */
 
 namespace Adewagold\Moneywave;
+use GuzzleHttp\Client;
 use Adewagold\Moneywave\Moneywave;
 
 class CardToBank extends Moneywave
@@ -30,9 +31,12 @@ class CardToBank extends Moneywave
     public $fee='0';
     public $redirecturl = "http://localhost:8005/successful";
     public $medium ='web';
+    public $client;
+    protected $key;
 
     public function __construct()
     {
+        $this->client = new Client();
         $this->firstname = request()->firstname;
         $this->lastname = request()->lastname;
         $this->email = request()->email;
@@ -41,6 +45,11 @@ class CardToBank extends Moneywave
         $this->recipientaccount=request()->recipeintaccount;
         $this->amount = intval(request()->amount);
         $this->redirecturl = request()->redirecturl;
+
+         $moneywave = new Moneywave;
+         $this->key = $moneywave->getApiKey();
+        var_dump($this->key);
+        
     }
 
     public function initializeTransaction()
@@ -73,12 +82,16 @@ class CardToBank extends Moneywave
             "medium"=>$this->medium,
             "redirect_url"=>$this->redirecturl
         ];
-              $body = json_encode($data);
+            $body = json_encode($data);
             $headers = ['content-type' => 'application/json', "Authorization" => $moneywave->getAuthorizetoken(), "exceptions" => FALSE];
-             $options = ["headers" => $headers, 'body'=>$body];
-             $request = $this->client->request('POST', $url, $options);
+            $options = ["headers" => $headers, 'body'=>$body];
+            
+            $request = $this->client->request('POST', $url, $options);
+        
             $response = json_decode($request->getBody()->getContents(), true);
-             return $response;
+
+            
+            return $response;
         }
         catch (\GuzzleHttp\Exception\RequestException $e) {
             
@@ -88,7 +101,7 @@ class CardToBank extends Moneywave
 
         $error = ["status" => "error",
             "message" => "There was an error in completing payment, please try again",
-            "code" => "INVALID_RESPONSE"];
+            "code" => "IINVALID_RESPONSE"];
 
         return $error;
     }
