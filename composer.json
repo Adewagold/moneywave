@@ -27,7 +27,7 @@
       },
       "autoload": {
         "psr-4": {
-          "Emmanix2002\\Moneywave\\": "src"
+          "Adewagold\\Moneywave\\": "src"
         }
       },
       "extra": {
