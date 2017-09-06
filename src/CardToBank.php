@@ -19,8 +19,8 @@ class CardToBank extends Moneywave
     public $cardnumber;
     public $phoneno="+2348067413041";
     public $email;
-    public $recipientbank = '011';
-    public $recipientaccount='3040981690';
+    public $recipientbank = '011'; // Bank Code. Check MoneywaveBank to check the bank codes
+    public $recipientaccount='';
     public $cvv;
     public $pin;
     public $expiryyear;

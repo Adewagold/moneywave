@@ -15,5 +15,21 @@
 
 class AccountToAccountTransaction
 {
+    public $firstname;
+    public $lastname;
+    public $cardnumber;
+    public $phoneno="+2348067413041";
+    public $email;
+    public $recipientbank = '011'; // Bank Code. Check MoneywaveBank to check the bank codes
+    public $recipientaccount=''; // Bank Account Number
+    public $cvv;
+    public $pin;
+    public $expiryyear;
+    public $expirymonth;
+    public $amount;
+    public $narration;
+    public $fee='0';
+    public $redirecturl = "http://localhost:8005/successful";
+    public $medium ='web';
 
 }
