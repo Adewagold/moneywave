@@ -2,6 +2,13 @@
     "name": "adewagold/moneywave",
     "description": "A PHP library to consume moneywave api services",
     "type": "library",
+    "keywords": [
+        "emmanix2002",
+        "moneywave",
+        "finance",
+        "flutterwave",
+        "fintech"
+      ],
     "license": "MIT licence",
     "authors": [
         {
@@ -9,5 +16,24 @@
             "email": "Adewagold@yahoo.com"
         }
     ],
-    "require": {}
+    
+    "homepage": "https://github.com/adewagold/moneywave",
+    "require": {
+        "php" : "~7.0",
+        "guzzlehttp/guzzle": "~6.2",
+        "vlucas/phpdotenv": "^2.4",
+        "monolog/monolog": "^1.22",
+        "symfony/var-dumper": "^3.2"
+      },
+      "autoload": {
+        "psr-4": {
+          "Emmanix2002\\Moneywave\\": "src"
+        }
+      },
+      "extra": {
+        "branch-alias": {
+          "dev-master": "1.0-dev"
+        }
+      }
 }
+
