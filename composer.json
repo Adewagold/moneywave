@@ -3,17 +3,18 @@
     "description": "A PHP library to consume moneywave api services",
     "type": "library",
     "keywords": [
-        "emmanix2002",
+        "adewagold",
         "moneywave",
         "finance",
         "flutterwave",
-        "fintech"
+        "fintech",
+        "laravel"
       ],
     "license": "MIT licence",
     "authors": [
         {
             "name": "Adewale Adeleye",
-            "email": "Adewagold@yahoo.com"
+            "email": "Adewagold@gmail.com"
         }
     ],
     
