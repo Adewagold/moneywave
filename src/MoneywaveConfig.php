@@ -78,3 +78,5 @@ public static $jsonHeader = array(
         $this->baseurl = 'https://live.moneywaveapi.co/'; //'https://moneywave.herokuapp.com/';
         $this->key ='lv_MR5THKS4ZAW2G1ENK8D2';//'ts_OKDKSBUMD4ZCRT5YU8NR';
         $this->secret = 'lv_VZ5I8J4BKM8W33GBDZ630TV6L0KVYN';//'ts_2EANBLDL72ZLC2WV4G78AWASF5G04U';
+
+        */
