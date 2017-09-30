@@ -6,6 +6,7 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
  */
 
 namespace Adewagold\Moneywave;
@@ -57,6 +58,7 @@ public static $jsonHeader = array(
       $config = new MoneywaveConfig;
        $data = json_encode(['apiKey'=>$config->apikey,'secret'=>$config->apisecret]);      
        $url = $this->baseurl . "v1/merchant/verify";
+
       // $body = ["apiKey" => $this->apikey, "secret" => $this->apisecret];
        $options = ["headers" => self::$jsonHeader, "body" => $data];
        $request = $this->client->request("POST", $url, $options);

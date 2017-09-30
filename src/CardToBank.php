@@ -29,7 +29,7 @@ class CardToBank extends Moneywave
     public $amount;
     public $narration;
     public $fee='0';
-    public $redirecturl = "http://localhost:8005/successful";
+    public $redirecturl = "";
     public $medium ='web';
     public $client;
     protected $key;
